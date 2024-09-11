@@ -1,0 +1,8 @@
+{
+  "label": "Badges",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Badges are used on the documentation to differentiate between features that are specific to Nexirift and those that are not."
+  }
+}

@@ -1,0 +1,69 @@
+# Configuration (config.json)
+
+Nova's non-sensitive configuration is stored in the `config.json` file.
+
+♾️ = Unlimited value, use -1 to disable limit.
+
+## Posts
+
+*Content that users can post to the instance.*
+
+**Require Media**: Whether or not posts require media to be attached to them.
+
+**Character Limit ♾️**: The maximum number of characters a post can have.
+
+### Pins
+
+*Pins are used to display posts at the top of a user's profile.*
+
+**Enabled**: Whether or not pins are enabled.
+
+**Limit ♾️**: The maximum number of pins a user can have.
+
+### Collections
+
+*Collections are used to store posts together like bookmarking a page.*
+
+**Enabled**: Whether or not collections are enabled.
+
+**Collection Limit ♾️**: The maximum number of collections a user can have.
+
+**Post Limit ♾️**: The maximum number of posts a collection can have.
+
+## Verification
+
+*See [Verification](/nova/verification) for more information.*
+
+**Enabled**: Whether or not verification is enabled.
+
+**Types**: An array of the types of verification that are enabled.
+
+## Age Verification
+
+*See [Age Verification](/compliance/age-verification) for more information.*
+
+**Enabled**: Whether or not age verification is enabled.
+
+## Messaging
+
+*Messaging is used to send messages to other users within the instance.*
+
+### Direct
+
+*Direct messaging is specifically between two users.*
+
+**Enabled**: Whether or not direct messaging is enabled.
+
+### Group
+
+*Group messaging is used to send messages to a group of users.*
+
+**Enabled**: Whether or not group messaging is enabled.
+
+**Max Participants ♾️**: The maximum number of participants in a group.
+
+## Subscriptions
+
+*Subscriptions are used to monetise your Nova instance.*
+
+**Enabled**: Whether or not subscriptions are enabled.

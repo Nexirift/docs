@@ -1,0 +1,8 @@
+{
+  "label": "Nova",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Nova is our API server that powers Nexirift's main API."
+  }
+}

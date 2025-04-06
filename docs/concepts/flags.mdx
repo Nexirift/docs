@@ -4,42 +4,46 @@ import BadgeWrapper from "@site/src/components/BadgeWrapper";
 
 <BadgeWrapper selected="Instance Variation" />
 
-Flags are a way to mark content on Nexirift. They are used in the backend of the platform to identify various content attributes, such as whether an account is determined to be a bot or not.
+Flags are an internal mechanism used by Nexirift to mark and categorize content across the platform (for more comprehensive information, see [Vortex](vortex)). These system indicators help identify various content attributes in the backend, such as detecting automated accounts or potentially harmful content.
 
-Some flags are externally exposed, such as the `FLAG_NSFW` flag, which is used to mark posts as NSFW. However, flags have the ability to be locked meaning that the post author cannot remove the flag.
+## Implementation of Flags
 
-## Our use of flags
+Nexirift implements flags at two primary levels:
+1. **Account level** - Applied to user accounts
+2. **Content level** - Applied to individual posts and messages
 
-General flags are used to identify accounts _and_ posts on the platform.
+> **Important note:** Some flags serve purely as internal identifiers and may not directly affect account functionality or visibility.
 
-:warning: Some flags are only used to identify accounts and may not have any impact on the accounts themselves. :warning:
+## Flag Categories
 
 ### FLAG_DANGER
 
 **Applies to:** Accounts
 
-This flag is used to identify accounts that are potentially dangerous. More specifically, this flag will be added when Nexirift deems that an account may cause immediate harm to themselves or others around them.
+Identifies accounts exhibiting potentially dangerous behavior. This flag is activated when Nexirift's systems detect indications that an account may pose immediate harm to themselves or others. This triggers appropriate safety protocols and review procedures.
 
 ### FLAG_SPAM
 
 **Applies to:** Accounts & Posts
 
-This flag is used to identify accounts that are potentially spam. More specifically, if a user is spamming links on posts (incl. replies to other posts) or spamming messages/links in chats, this flag will be added.
+Identifies spam-related activity across the platform. This flag is applied when:
+- Users repeatedly share unsolicited links in posts
+- Users post excessive identical or similar content
+- Accounts engage in mass messaging with promotional content
+- Posts contain patterns consistent with automated spam distribution
 
 ### FLAG_COMPROMISED
 
 **Applies to:** Accounts
 
-This flag is used to identify accounts that are potentially compromised. More specifically, if an account has had suspicious activity within a certain timeframe, this flag will be added and the account will be disabled temporarily.
+Identifies accounts showing signs of unauthorized access or security breach. When suspicious activity patterns are detected within a defined timeframe (such as unusual login locations, behavior changes, or credential modifications), this flag triggers temporary account deactivation to protect user data while the situation is resolved.
 
 ### FLAG_MANIPULATION
 
 **Applies to:** Accounts & Posts
 
-This flag is used to identify accounts that have been deemed to be manipulating the platform. More specifically, if an account has been posting misinformation or spreading false information, this flag will be added.
-
-### FLAG_NSFW
-
-**Applies to:** Accounts & Posts
-
-This flag is used to identify posts that are marked as NSFW (Not Safe For Work). This flag can be added to posts by the post's author, however, moderators can also add this flag to posts in a "locked" state.
+Identifies content manipulation attempts on the platform. This flag is applied to accounts or specific posts that:
+- Spread verifiably false information
+- Attempt to mislead the community
+- Engage in coordinated inauthentic behavior
+- Present fabricated content as factual

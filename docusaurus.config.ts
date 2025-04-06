@@ -35,6 +35,20 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          sidebarItemsGenerator: async ({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) => {
+            const sidebarItems = await defaultSidebarItemsGenerator(args);
+            return sidebarItems.filter((item) => {
+              if ("link" in item) {
+                if ("id" in item.link) {
+                  return item.link.id !== "policies/index";
+                }
+              }
+              return true;
+            });
+          },
           editUrl: "https://github.com/Nexirift/docs/tree/main/",
           routeBasePath: "/",
         },
@@ -47,12 +61,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/social-card.jpg",
     navbar: {
       title: "Nexirift Docs",
       logo: {
         alt: "Nexirift Logo",
-        src: "img/logo.svg",
+        src: "img/logo.png",
       },
       items: [
         {

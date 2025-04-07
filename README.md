@@ -2,6 +2,8 @@
 
 Welcome to the official documentation for Nexirift!
 
-This documentation is very much a work in progress, and will be updated as Nexirift develops.
+This comprehensive guide provides detailed information about Nexirift's features, functionality, and implementation. As Nexirift continues to evolve, we regularly update this documentation to reflect the latest developments and improvements.
 
-Do not expect this documentation to be completely accurate, as it is still in the early stages of development.
+Please note that while we strive for accuracy, some sections may be subject to change as the platform matures. We encourage you to check back regularly for the most current information.
+
+If you have any questions or discover inconsistencies, please contact our support team for clarification.

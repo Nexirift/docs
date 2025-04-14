@@ -1,0 +1,8 @@
+{
+  "label": "Cosmos",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Cosmos is the custom authentication server built by Nexirift."
+  }
+}

@@ -1,0 +1,25 @@
+# Geoblocking
+
+In compliance with international regulations, Nexirift adheres to content restrictions required by certain governments. This policy ensures our platform remains accessible in countries that implement specific content censorship laws while maintaining service for our global user base.
+
+## Official Government Content Restriction Requests
+
+Government entities seeking to request content restrictions can contact us through official channels at [geoblock@nexirift.com](mailto:geoblock@nexirift.com). We will respond promptly to evaluate your request.
+
+## Implementation Process
+
+Upon receiving an official government request, we follow a rigorous verification protocol to authenticate the requesting authority. After confirmation of legitimacy, we implement region-specific restrictions using our sophisticated Attributes system in Nexirift Nova.
+
+For instance, when implementing a restriction for Turkey, we apply the attribute `GEOBLOCK_TUR` (following ISO Alpha-3 country codes) to the specific content. This ensures the content is only restricted in the relevant jurisdiction while remaining available elsewhere.
+
+## Restriction Removal Policy
+
+Content restrictions implemented at the request of government authorities cannot be reversed by individual users. These measures are not intended to discourage free expression but are necessary to maintain Nexirift's availability in countries with specific content regulations.
+
+## Technical Aspects of Restrictions
+
+For transparency, users should be aware of the following technical details regarding geo-blocked content:
+
+- While restricted content is not displayed in the user interface in affected regions
+- The content remains present in API responses, though not rendered visually
+- The restrictions are implemented at the presentation layer rather than by removing content from our databases

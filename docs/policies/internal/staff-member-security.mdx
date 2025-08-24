@@ -1,55 +1,86 @@
 # Staff Member Security
 
-At Nexirift, we prioritize security as a cornerstone of our operations. This comprehensive policy outlines the mandatory guidelines and industry best practices for all staff to follow, ensuring the protection of our assets, data integrity, and organizational reputation.
+Security is integral to Nexirift’s operations. This policy sets mandatory requirements and codifies industry best practices to safeguard company assets, ensure data integrity, and protect our reputation. Every staff member is personally accountable for complying with the controls below.
 
 ## Passwords
 
-These guidelines apply to both traditional passwords and passphrase authentication methods. Additional specifications may be implemented to address unique requirements for each approach.
+These requirements apply to both traditional passwords and passphrases. Additional control refinements may be issued as threat conditions evolve.
 
 ### Complexity
 
-All staff members must create and maintain strong authentication credentials:
+All staff must create and maintain strong, unique credentials.
 
-**For traditional passwords:**
+**Traditional passwords:**
+- Minimum length: 12 characters (longer is encouraged).
+- Must contain at least one lowercase letter, one uppercase letter, one numeral, and one special character.
+- Must be unique per account and never reused.
+- Must not contain easily guessable elements (e.g., names, dates, keyboard patterns, or publicly known content about you).
 
-- Passwords must be a minimum of 12 characters in length.
-- Passwords must include at least one lowercase letter, one uppercase letter, one number, and one special character.
-- Passwords must not be reused across different services or be easily guessable.
-
-**For passphrases:**
-
-- Passphrases must contain at least 4 distinct words.
-- Passphrases must implement a symbol as a separator between words.
-- Passphrases must not be reused across services or consist of commonly known phrases.
+**Passphrases:**
+- Minimum: 4 distinct, non-trivially related words (target overall length ≥ 20 characters).
+- Must use at least one non-alphanumeric separator (symbol or number) between words.
+- Must be unique per account and must not be a common phrase, quotation, lyric, meme, or well-known slogan.
 
 ### Management
 
-- The use of approved password managers is mandatory for storing and managing all credentials.
-   - Google Password Manager and LastPass are explicitly prohibited due to documented security vulnerabilities.
-   - All employees must utilize the company-designated password management solution.
-   - Bitwarden is the officially approved password manager for all Nexirift employees.
-- Under no circumstances should passwords be stored in plaintext, written down in unsecured locations, or shared with other individuals.
+- Use of the approved enterprise password manager is mandatory for creating, storing, and sharing (where explicitly authorized) credentials.
+  - Google Password Manager and LastPass are prohibited due to prior documented security concerns.
+  - Bitwarden (enterprise deployment) is the sole approved password manager.
+- Generate credentials via the password manager whenever possible; do not self‑devise unless a system enforces its own creation flow.
+- Do not store passwords or passphrases in plaintext, unencrypted files, messaging tools, personal notes, or on paper in unsecured locations.
+- Never share credentials. If access must be delegated, request appropriate role-based access instead of sharing a secret.
+- Immediately replace (rotate) any credential suspected of exposure and report per the Security Incidents section.
+- Do not use corporate credentials for personal services.
 
 ## Two-Factor Authentication
 
-Two-Factor Authentication (2FA) is mandatory without exception for all staff members. Any service or application that utilizes a Nexirift account or email address must have 2FA enabled wherever the functionality exists. Passkey technology is strongly recommended to further enhance account security through its hardware-based authentication mechanisms.
+Two-Factor Authentication (2FA) is mandatory on every service that supports it when used with a Nexirift identity (account or email). Enable it at first login or immediately upon service provisioning.
+
+Preferred methods (strongest to acceptable):
+1. Passkeys / FIDO2 (hardware-backed)
+2. Hardware security keys (FIDO/U2F)
+3. Authenticator app (TOTP)
+4. Push-based approvals with number matching
+5. SMS or voice (only if no stronger option exists)
+
+Passkeys are strongly recommended wherever supported. We will phase out weaker factors as capabilities mature. Do not approve unsolicited 2FA prompts; report them as potential attacks.
 
 ## Security Incidents
 
-All staff members are required to immediately report any suspected or confirmed security incidents to the security team through the designated reporting channels. The security team will lead the investigation and implement appropriate mitigation measures. Staff must fully cooperate with the security team throughout the investigation and remediation process, providing any requested information without delay.
+A security incident includes (but is not limited to): suspected credential compromise, malware, data loss, unauthorized access, phishing success, lost/stolen device, or misdirected sensitive information.
+
+Reporting requirements:
+- Report immediately (target within 15 minutes of discovery) via the designated incident channel(s) (e.g., security ticketing system or security@ email).
+- Do not attempt to “fix” or conceal an incident before reporting.
+- Preserve evidence: do not power off or wipe affected systems unless safety or legal directives require it.
+- Fully cooperate with the security team; provide requested information promptly.
+
+The security team coordinates investigation, containment, eradication, and recovery actions.
 
 ## Software and System Security
 
-- All software, applications, and systems must be kept current with the latest security patches and updates.
-- Staff members must strictly limit their access to only those systems and applications for which they have explicit authorization.
-- Exercise vigilance regarding suspicious emails, links, attachments, and never download files or software from untrusted or unverified sources.
+- Keep operating systems, applications, firmware, and dependencies current with security patches. Enable automatic updates where feasible.
+- Install only authorized software; obtain prior approval for exceptions.
+- Apply the Principle of Least Privilege: request and retain only the access required for current responsibilities; remove access when no longer needed.
+- Use company-provided endpoint protection, EDR/AV, disk encryption, and device management agents; do not disable them.
+- Verify software sources (official vendor or trusted repository). Do not download from unverified or “cracked” sources.
+- Treat unsolicited emails, links, QR codes, attachments, and authentication prompts as suspicious until verified. When in doubt, report.
+- Do not transfer company data to personal cloud storage, personal email, or unauthorized collaboration tools.
+- Secure sensitive data in transit (TLS, approved VPN) and at rest (encrypted storage).
 
 ## Physical Security
 
-- All systems containing confidential or sensitive data must be physically secured and locked when unattended, even for brief periods.
-- Sensitive information and documents must be stored in designated secure environments with appropriate access controls in place.
-- Clean desk policy must be followed, ensuring no sensitive materials are left visible after working hours.
+- Lock screens before leaving any device unattended; devices must auto-lock after a short inactivity period (≤ 5 minutes).
+- Store devices holding sensitive data in secured locations (locked office, cabinet, or drawer) when unattended.
+- Follow a clean desk policy: no confidential documents, removable media, or credentials left visible after working hours.
+- Prevent tailgating: politely challenge unknown individuals attempting to follow you into restricted areas.
+- Report lost or stolen devices immediately as a security incident.
 
 ## Compliance
 
-Non-compliance with this security policy constitutes a serious violation and may result in disciplinary action, up to and including termination of employment, depending on the severity and frequency of the infraction.
+Failure to comply with this policy may result in disciplinary action up to and including termination, subject to severity and recurrence. All staff must:
+- Acknowledge this policy upon hire and at least annually.
+- Complete required security awareness training.
+- Promptly report suspected violations or weaknesses.
+
+Questions about interpretation or exceptions must be directed to the security team before taking action. No unilateral exceptions are permitted.

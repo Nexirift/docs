@@ -1,66 +1,65 @@
 # Cybersecurity Incident Response
 
-As part of our unwavering commitment to transparency and accountability, Nexirift maintains a robust incident response protocol when addressing any security incidents or breaches. This comprehensive framework covers incidents related to user data, system security vulnerabilities, and those involving third-party service providers. Our structured approach ensures immediate identification, thorough investigation, and effective remediation of all security events to minimize impact and prevent recurrence.
+Nexirift maintains a structured, time‑bound incident response program to rapidly detect, investigate, contain, eradicate, and learn from security events affecting our systems, data, or third‑party integrations. The program emphasizes transparency, evidence preservation, stakeholder communication, and continuous improvement to minimize impact and prevent recurrence.
 
 ## Categories of Security Incidents
 
-1. **Unauthorized Access:** Any unauthorized access or attempts to breach Nexirift systems, including internal staff services, customer data repositories, proprietary information, or connected third-party services.
-2. **Data Breach:** The unauthorized acquisition, exfiltration, or exposure of user data, including personally identifiable information (PII), non-public personal information, authentication credentials, or security-related infrastructure data.
-3. **Malware Infection:** Detection of malicious software, including but not limited to viruses, trojans, ransomware, spyware, rootkits, or other harmful code on any Nexirift production systems, development environments, or networked infrastructure.
-4. **Social Engineering Attacks:** Incidents involving manipulation techniques such as phishing, vishing, pretexting, baiting, or other deceptive practices targeting Nexirift personnel with the intent to gain unauthorized access or information.
-5. **Denial of Service:** Any attacks or technical failures resulting in degradation or complete unavailability of Nexirift's services, applications, APIs, or critical business systems that impact customer experience or operational capabilities.
-6. **Insider Threat:** Incidents involving misuse of authorized access, data theft, sabotage, or other malicious activities perpetrated by current or former employees, contractors, or other parties with legitimate access to Nexirift systems or information.
+1. **Unauthorized Access:** Any unapproved use of or attempt to access Nexirift systems, internal services, customer data repositories, proprietary information, or integrated third-party platforms.
+2. **Data Breach:** Unauthorized acquisition, exfiltration, alteration, destruction, or exposure of user or company data, including PII, credentials, keys, or sensitive configuration data.
+3. **Malware Infection:** Presence or execution of malicious code (e.g., viruses, trojans, ransomware, spyware, rootkits) in production, development, or networked environments.
+4. **Social Engineering:** Phishing, vishing, pretexting, baiting, or similar manipulation targeting personnel to gain access or information.
+5. **Denial of Service:** Attacks or failures that degrade or render unavailable Nexirift services, APIs, applications, or critical business systems.
+6. **Insider Threat:** Malicious or negligent misuse of authorized access (data theft, sabotage, policy violations) by current or former employees, contractors, or other trusted parties.
 
 ## Incident Reporting Procedures
 
 **For the public:**
 
-- If you discover or suspect a security incident, please immediately report it to Nexirift's dedicated security team via email at [security@nexirift.com](mailto:security@nexirift.com). Your report will be treated with the highest priority and confidentiality.
+- Report suspected vulnerabilities or security incidents to [security@nexirift.com](mailto:security@nexirift.com). We prioritize confidentiality and timely review.
+- Please include (when possible): description, affected asset or URL, reproduction steps, timestamps (with timezone), impact estimate, and any supporting evidence (e.g., headers, logs, screenshots).
 
 **For Nexirift employees:**
 
-- If you identify or suspect a security incident, report it immediately to both your team leader and the security team through the designated emergency response channels. Time is critical in security incident containment.
+- Immediately escalate suspected incidents to your team leader and the security team via approved emergency channels (designated chat / hotline / ticket). Do not attempt ad‑hoc remediation that could destroy evidence.
+- Provide: who discovered it, when, systems involved, observed indicators, actions already taken (if any), and urgency concerns.
 
 ## Response Framework
 
-1. **Initial Assessment & Triage:** Upon receiving a security incident report, the security team will immediately conduct a comprehensive analysis to determine the scope, severity, impact, and potential risks associated with the incident. This assessment will be completed within our guaranteed 30-minute response window.
-
-2. **Containment Strategy:** The security team will execute decisive actions to contain the incident and prevent further damage. These measures may include:
-   - Immediately locking down and/or disabling all potentially compromised staff accounts.
-   - Revoking active sessions, invalidating API keys, and enforcing password changes across affected systems.
-   - Isolating the affected systems from the network through segmentation or complete disconnection.
-   - Creating forensically sound snapshots of affected systems and data for thorough analysis and evidence preservation.
-   - Implementing additional security controls to prevent lateral movement within the network.
-   - When necessary, implementing critical system shutdowns even if they temporarily impact end-user services to prevent catastrophic damage.
-
-3. **Notification Protocol:** All affected parties will be notified according to our tiered communication plan:
-   - Immediate notification to executive leadership
-   - Official statement via the @Security account on Nexirift
-   - Direct communication with affected customers within legally required timeframes
-   - Coordination with law enforcement agencies when appropriate for further investigation and evidence collection
-
-4. **Recovery Operations:** The security team will implement our established recovery procedures to restore operational integrity:
-   - Retrieving and analyzing forensic evidence of the incident
-   - Restoring affected systems to verified secure states
-   - Implementing comprehensive system hardening and security patching
-   - Executing backup or snapshot restoration from clean, verified sources
-   - Deploying enhanced security controls to prevent similar future incidents
-
-5. **Ongoing Communication:** Throughout the incident lifecycle, our security team will provide transparent, timely updates to all stakeholders:
-   - Regular status updates at predetermined intervals
-   - Clear explanation of remediation progress
-   - Realistic timelines for full service restoration
-   - Guidance on any required actions for affected parties
-
-6. **Post-Incident Analysis:** Following resolution, our security team will conduct a thorough post-mortem review to:
-   - Document the complete incident timeline
-   - Identify root causes and contributing factors
-   - Develop specific recommendations for security improvements
-   - Create a detailed incident report for leadership review
-
+1. **Initial Assessment & Triage:** The security team reviews the report, validates the event, assigns a severity level (based on impact, scope, exploitation likelihood, and data sensitivity), and initiates the incident record. Target: begin analysis within 30 minutes of receipt for high/critical reports.
+2. **Containment Strategy:** Actions focus on limiting spread and preserving evidence, which may include:
+   - Disabling or locking suspected accounts and rotating credentials/keys.
+   - Revoking active sessions and invalidating tokens or API keys.
+   - Network isolation, segmentation, or controlled shutdown of affected components.
+   - Capturing forensically sound disk / memory / log snapshots.
+   - Deploying temporary compensating controls (e.g., stricter firewall rules, feature flags).
+   - Executing emergency shutdowns when necessary to prevent escalated compromise.
+3. **Notification Protocol:** Communications follow a tiered, least‑delay model:
+   - Immediate escalation to security leadership and executive stakeholders.
+   - Internal status postings in designated incident channels.
+   - External statement via the official @Security account (as appropriate).
+   - Direct notices to affected customers within statutory/regulatory timeframes.
+   - Law enforcement or regulatory engagement where legally or strategically appropriate.
+4. **Recovery Operations:** Restore integrity and normal operations while reducing residual risk:
+   - Root cause validation and forensic evidence analysis.
+   - System rebuilds or restorations from known-good, verified backups.
+   - Patch and configuration hardening; removal of malicious artifacts.
+   - Credential, token, and secret rotation as needed.
+   - Validation testing (security + functional) prior to full production reintegration.
+5. **Ongoing Communication:** Maintain clear, consistent updates:
+   - Scheduled status intervals (e.g., hourly for critical, then taper as stabilized).
+   - Disclosure of known impact, mitigations in place, and next milestones.
+   - Action guidance for affected users (password resets, client updates, etc.).
+   - Revision of timelines if new findings adjust scope or complexity.
+6. **Post-Incident Analysis:** After containment and recovery:
+   - Assemble a detailed timeline (detection, escalation, decisions, actions, closure).
+   - Identify root cause(s), control gaps, and contributing factors (technical & procedural).
+   - Quantify impact (systems, data classes, duration, user segments).
+   - Produce a remediation and prevention plan with owners and target dates.
+   - Deliver a formal report to leadership; share sanitized lessons internally.
 7. **Continuous Improvement & Compliance:** Nexirift commits to:
-   - Implementing all identified security enhancements from post-incident analysis
-   - Updating security protocols based on lessons learned
-   - Conducting additional staff training where needed
-   - Ensuring full compliance with all applicable data protection laws, regulations, and industry standards
-   - Regular testing of our incident response capabilities through simulated exercises
+   - Tracking and completing all corrective actions (with verification).
+   - Updating runbooks, playbooks, and detection logic.
+   - Conducting focused training or awareness refreshers based on observed gaps.
+   - Ensuring adherence to applicable laws, regulations, and industry standards.
+   - Performing periodic tabletop exercises and live simulations to test readiness.
+   - Measuring and reviewing key metrics (MTTD, MTTR, containment time, recurrence rate).

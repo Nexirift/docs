@@ -1,25 +1,50 @@
 # Geoblocking
 
-In compliance with international regulations, Nexirift adheres to content restrictions required by certain governments. This policy ensures our platform remains accessible in countries that implement specific content censorship laws while maintaining service for our global user base.
+Nexirift complies with applicable laws and lawfully issued governmental orders that require geographic restriction of specific content. Our goal is to (1) remain available to users in jurisdictions that impose content controls, while (2) preserving the integrity, security, and auditability of the underlying content and (3) minimizing collateral impact on uninvolved regions.
 
-## Official Government Content Restriction Requests
+## Content Restriction Requests
 
-Government entities seeking to request content restrictions can contact us through official channels at [geoblock@nexirift.com](mailto:geoblock@nexirift.com). We will respond promptly to evaluate your request.
+We act only on formally submitted, legally valid government requests. Government entities should contact us at [geoblock@nexirift.com](mailto:geoblock@nexirift.com). To accelerate review, include:
+- Legal authority cited (statute, court order, regulatory basis)
+- Issuing agency / department and an authorized contact
+- Scope (URLs, content IDs, categories) and precise geographic jurisdiction
+- Time sensitivity (deadline) and, if applicable, expiry date
+- Any confidentiality constraints
+
+We acknowledge receipt, assign a tracking identifier, and may request clarification if scope or legal basis is ambiguous. We do not implement restrictions based on informal outreach, private disputes, or automated bulk submissions.
 
 ## Implementation Process
 
-Upon receiving an official government request, we follow a rigorous verification protocol to authenticate the requesting authority. After confirmation of legitimacy, we implement region-specific restrictions using our sophisticated Attributes system in Nexirift Nova.
+After verifying the authenticity, legal sufficiency, and scope of a request, we apply region‑specific restriction attributes in Nexirift Nova.
 
-For instance, when implementing a restriction for Turkey, we apply the attribute `GEOBLOCK_TUR` (following ISO Alpha-3 country codes) to the specific content. This ensures the content is only restricted in the relevant jurisdiction while remaining available elsewhere.
+- Country‑wide: `GEOBLOCK_<ISO 3166-1 alpha-2>`, e.g. `GEOBLOCK_TR` (Turkey).
+- First‑level subdivisions (state / province): `GEOBLOCK_<ISO 3166-2 code>`, e.g. `GEOBLOCK_US-CA`, `GEOBLOCK_US-TX`, `GEOBLOCK_AU-NSW`.
+
+Granular scoping ensures only the specified jurisdictions are affected. Requests that are overbroad relative to the cited authority may be narrowed before enforcement. All actions are logged (request metadata, reviewer, timestamp, applied attributes) in an internal audit ledger.
 
 ## Restriction Removal Policy
 
-Content restrictions implemented at the request of government authorities cannot be reversed by individual users. These measures are not intended to discourage free expression but are necessary to maintain Nexirift's availability in countries with specific content regulations.
+Users cannot unilaterally disable an active government‑mandated geoblock. A restriction may be lifted when:
+1. The originating authority issues a revocation or the underlying legal order expires.
+2. A successful appeal (by the content owner or an authorized representative) demonstrates the order is invalid, superseded, or improperly scoped.
+3. We identify an implementation error (e.g., wrong jurisdiction code).
+
+Appeal requests (with supporting documentation) can be sent to [geoblock-appeals@nexirift.com](mailto:geoblock-appeals@nexirift.com). We review appeals promptly and, where legally permissible, notify the requester of the outcome. Lifting a restriction removes only the blocking attribute; the content itself is not modified.
 
 ## Technical Aspects of Restrictions
 
-For transparency, users should be aware of the following technical details regarding geo-blocked content:
+For transparency, the following summarizes how geo‑based restrictions function:
 
-- While restricted content is not displayed in the user interface in affected regions
-- The content remains present in API responses, though not rendered visually
-- The restrictions are implemented at the presentation layer rather than by removing content from our databases
+- UI Filtering: Restricted items are omitted from feeds, search, recommendations, and direct access for users resolved to affected jurisdictions.
+- Data Preservation: Content objects (identifiers, metadata, revision history, audit trail) remain intact; no silent edits occur.
+- API Behavior: Some authenticated API responses may still include references (IDs, counts) to preserve data integrity and pagination. Clients in restricted regions receive policy directives not to render blocked material.
+- Enforcement Layer: Restrictions operate via attribute evaluation plus policy filters at presentation and delivery layers—no destructive data operations—enabling rapid reversal.
+- Deletion Safeguards: We do not permanently delete content solely due to a single governmental restriction request; any durable deletion follows separate retention and legal processes.
+- Location Signals: Determination uses IP geolocation and (if voluntarily provided) account jurisdiction settings. We do not collect device GPS for this feature.
+- Uncertain Location: If signals are inconclusive, we default to the least restrictive lawful experience unless a binding order mandates broader blocking.
+- Circumvention Attempts: Use of anonymization or proxy techniques may still surface a restriction notice; underlying content remains preserved.
+- User Notification: Where legally allowed, affected content owners receive notice detailing jurisdiction(s), effective timestamp, and request reference.
+- Audit & Reporting: All geoblock events are logged. Aggregate, de‑identified metrics may appear in periodic transparency reports (subject to legal constraints).
+- Privacy: Location processing minimizes retained data and is limited to what is required for compliance and accurate scoping.
+
+We continually review this process to reduce over‑blocking and improve accountability while honoring binding legal obligations.
